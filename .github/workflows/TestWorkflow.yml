@@ -60,10 +60,10 @@ jobs:
       - name: Install Python Modules
         run: |
           pip install --upgrade pip
-          pip install -r ${{ env.DEVOPS_DIR }}/AssetDigestBuilder/requirements.txt
+          pip install -r ${{ env.TOOLS_DIR }}/AssetDigestBuilder/requirements.txt
        
       - name: Run Builder Script
-        run: python "{{ env.DEVOPS_DIR }}/AssetDigestBuilder/main.py"
+        run: python "{{ env.TOOLS_DIR }}/AssetDigestBuilder/main.py"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed?
           MAIN_DIR: ${{ env.MAIN_DIR }}
