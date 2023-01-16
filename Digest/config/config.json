@@ -1,0 +1,17 @@
+{
+  "directoryData": 
+  [
+    {
+      "directory": "Images/TheAnimation",
+      "directoryPageDepth": 0,
+      "fileTypes": [".png"],
+      "directoriesToExclude": []
+    },
+    {
+      "directory": "Images/StardustCrusaders",
+      "directoryPageDepth": 0,
+      "fileTypes": [".png"],
+      "directoriesToExclude": []
+    }
+  ]
+}
