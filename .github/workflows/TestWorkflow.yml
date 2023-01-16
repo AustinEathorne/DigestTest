@@ -63,7 +63,7 @@ jobs:
           pip install -r ${{ env.TOOLS_DIR }}/requirements.txt
        
       - name: Run Builder Script
-        run: python "{{ env.TOOLS_DIR }}/main.py"
+        run: python "${{ env.TOOLS_DIR }}/main.py"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed?
           MAIN_DIR: ${{ env.MAIN_DIR }}
