@@ -21,11 +21,11 @@ env:
 
 # Jobs
 jobs:
-  build_asset_digest:
+  build_and_push_digest:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
+      - name: Checkout Main Repo
         uses: actions/checkout@v3
         with:
           ref: ${{ env.GITHUB_SHA }}
@@ -36,7 +36,7 @@ jobs:
         with:
           repository: AustinEathorne/DigestTest.wiki
           ref: master
-          token: ${{ secrets.GITHUB_TOKEN }} #${{ secrets.GH_PAT }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           path: ${{ env.WIKI_DIR }}
       
       - name: Checkout Digest Builder Tools
@@ -44,12 +44,8 @@ jobs:
         with:
           repository: AustinEathorne/AssetDigestBuilder
           ref: master
-          token: ${{ secrets.GITHUB_TOKEN }} #${{ secrets.GH_PAT }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           path: ${{ env.TOOLS_DIR }}
-        # both secrets.GH_PAT and secrets.GITHUB_TOKEN can be used to authenticate with the GitHub API
-        # and perform various actions on a repository, the difference is that secrets.GH_PAT is a token
-        # created by the user and secrets.GITHUB_TOKEN is a built-in token that GitHub provides and
-        # automatically manages for the user.
        
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -62,12 +58,9 @@ jobs:
           pip install --upgrade pip
           pip install -r ${{ env.TOOLS_DIR }}/requirements.txt
        
-      - name: Run Builder Script
+      - name: Build and Push Asset Digest
         run: python "${{ env.TOOLS_DIR }}/main.py"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed?
           MAIN_DIR: ${{ env.MAIN_DIR }}
           WIKI_DIR: ${{ env.WIKI_DIR }}
-          TOOLS_DIR: ${{ env.TOOLS_DIR }}
-          GITHUB_WORKSPACE: ${{ github.workspace }}
           GITHUB_SHA: ${{env.GITHUB_SHA }}
