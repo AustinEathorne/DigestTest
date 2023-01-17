@@ -69,7 +69,7 @@ jobs:
           MAIN_DIR: ${{ env.MAIN_DIR }}
           WIKI_DIR: ${{ env.WIKI_DIR }}
           TOOLS_DIR: ${{ env.TOOLS_DIR }}
-          GITHUB_WORKSPACE: ${{ env.GITHUB_WORKSPACE }}
+          GITHUB_WORKSPACE: ${{ github.workspace }}
           
       
       #- name: Install Python Dependencies
