@@ -70,4 +70,4 @@ jobs:
           WIKI_DIR: ${{ env.WIKI_DIR }}
           TOOLS_DIR: ${{ env.TOOLS_DIR }}
           GITHUB_WORKSPACE: ${{ github.workspace }}
-          COMMIT_SHA: ${{env.GITHUB_SHA }}
+          GITHUB_SHA: ${{env.GITHUB_SHA }}
