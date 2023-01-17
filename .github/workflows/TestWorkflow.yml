@@ -70,27 +70,4 @@ jobs:
           WIKI_DIR: ${{ env.WIKI_DIR }}
           TOOLS_DIR: ${{ env.TOOLS_DIR }}
           GITHUB_WORKSPACE: ${{ github.workspace }}
-          
-      
-      #- name: Install Python Dependencies
-        # Installation action - https://github.com/marketplace/actions/python-dependency-installation
-        #uses: py-actions/py-dependency-install@v4
-        #with:
-        #  path: ${{ env.DEVOPS_DIR }}/AssetDigestBuilder/requirements.txt
-        #
-        #run: |
-        #  echo 'Install Python Modules`
-        #  pip install --upgrade pip
-        #  pip install -r ${{ env.TOOLS_DIR }}/AssetDigestBuilder/requirements.txt
-       
-      #- name: Run Script
-      #  uses: actions/python-action@v1
-      #  with:
-      #    entry-point: "{{ env.DEVOPS_DIR }}/AssetDigestBuilder/main.py" 
-      #  env:
-      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed if the main repo is cloned locally? Can't we just operate directly on the repo?
-       
-      # python ${{ env.TOOLS_DIR }}/AssetDigestBuilder/main.py
-      #- name: Run Digest Builder
-      #  run: python ${{ env.TOOLS_DIR }}/main.py
-      #  shell: sh
+          COMMIT_SHA: ${{env.GITHUB_SHA }}
