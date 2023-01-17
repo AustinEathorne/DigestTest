@@ -31,7 +31,7 @@ jobs:
           ref: ${{ env.GITHUB_SHA }}
           path: ${{ env.MAIN_DIR }}
       
-      - name: Checkout Wiki
+      - name: Checkout Wiki Repo
         uses: actions/checkout@v3
         with:
           repository: AustinEathorne/DigestTest.wiki
@@ -39,7 +39,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           path: ${{ env.WIKI_DIR }}
       
-      - name: Checkout Digest Builder Tools
+      - name: Checkout Asset Digest Builder Repo
         uses: actions/checkout@v3
         with:
           repository: AustinEathorne/AssetDigestBuilder
@@ -53,7 +53,7 @@ jobs:
           python-version: '3.10'
           cache: 'pip'
   
-      - name: Install Python Modules
+      - name: Install Python Depedencies
         run: |
           pip install --upgrade pip
           pip install -r ${{ env.TOOLS_DIR }}/requirements.txt
