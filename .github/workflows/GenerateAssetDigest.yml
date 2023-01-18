@@ -42,7 +42,7 @@ jobs:
         with:
           repository: AustinEathorne/AssetDigestBuilder
           ref: master
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.PAT }}
           path: ${{ env.TOOLS_DIR }}
        
       - name: Setup Python
