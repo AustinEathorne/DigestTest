@@ -6,8 +6,8 @@ on:
   push:
     branches:
       - master
-    paths:
-      - "Assets/**/**.png" 
+    #paths:
+      #- "Assets/**/**.png" 
       #- "Assets/_Overworld/Textures/World/**/**.png"
       #- "Assets/AssetBundles/ChapterArtBundles/**/**.png"
 
