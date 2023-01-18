@@ -3,9 +3,7 @@ name: Generate Asset Digest
 
 # Event
 on:
-  pull_request:
-    types:
-      - closed
+  push:
     branches:
       - master
     paths:
