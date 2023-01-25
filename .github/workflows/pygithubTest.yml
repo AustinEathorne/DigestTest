@@ -1,0 +1,41 @@
+# Workflow Name
+name: PyGithub Test
+
+# Event
+on: workflow_dispatch
+
+# Environment
+env:
+  TOOLS_DIR: tools #The directory where the digest tools repo is cloned
+  REPO_NAME: DigestTest #This repo's name, can probably get this in python
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+# Jobs
+jobs:
+  pygithub_test:
+    runs-on: ubuntu-latest
+    steps:      
+      - name: Checkout Asset Digest Builder Repo
+        uses: actions/checkout@v3
+        with:
+          repository: AustinEathorne/AssetDigestBuilder
+          #token: ${{ secrets.PAT }}
+          ref: master
+          path: ${{ env.TOOLS_DIR }}
+       
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+  
+      - name: Install Python Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r ${{ env.TOOLS_DIR }}/requirements.txt
+       
+      - name: Run Test
+        run: python "${{ env.TOOLS_DIR }}/pygithubTest.py"
+        env:
+          GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
+          REPO_NAME: ${{ env.REPO_NAME }}
