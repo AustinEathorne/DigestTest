@@ -7,7 +7,7 @@ on: workflow_dispatch
 # Environment
 env:
   TOOLS_DIR: tools #The directory where the digest tools repo is cloned
-  REPO_NAME: DigestTest #This repo's name, can probably get this in python
+  REPO_NAME: AustinEathorne/DigestTest #This repo's name, can probably get this in python
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 # Jobs
