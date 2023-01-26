@@ -1,0 +1,40 @@
+{
+  "searchData":
+  [
+    {
+      "name": "World",
+      "pageData": 
+      [
+        {
+          "directory": "Images/Test1",
+          "inProject": true,
+          "fileExtensions": [".png"],
+          "directoryDepth": 0,
+          "directoriesToExclude": []
+        },
+        {
+          "directory": "Images/Test2",
+          "inProject": true,
+          "fileExtensions": [".png"],
+          "directoryDepth": 1,
+          "directoriesToExclude": []
+        }
+      ],
+      "searchData": []
+    },
+    {
+      "name": "Actor Animations",
+      "pageData": 
+      [
+        {
+          "directory": "ActorAnimations/Ava",
+          "inProject": false,
+          "fileExtensions": [".gif"],
+          "directoryDepth": 1,
+          "directoriesToExclude": []
+        }
+      ],
+      "searchData": []
+    }
+  ]
+}
