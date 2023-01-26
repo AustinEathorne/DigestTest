@@ -55,4 +55,4 @@ jobs:
           GITHUB_SHA: ${{ env.GITHUB_SHA }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO_NAME: AustinEathorne/DigestTest
-          CONFIG_PATH: Tools\AssetDigest\config.json
+          CONFIG_PATH: Tools/AssetDigest/config.json
