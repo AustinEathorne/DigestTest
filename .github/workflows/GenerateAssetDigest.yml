@@ -13,21 +13,16 @@ on:
 
 # Environment
 env:
-  MAIN_DIR: main #The directory where the main repo is cloned
   TOOLS_DIR: tools #The directory where the digest tools repo is cloned
   WIKI_DIR: wiki #The directory where the digest wiki repo is cloned
+  REPO_NAME: DigestTest #This repo's name
+  CONFIG_PATH: Tools\AssetDigest\config.json #Path to the config file in this repo
 
 # Jobs
 jobs:
   build_and_push_digest:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Main Repo
-        uses: actions/checkout@v3
-        with:
-          ref: ${{ env.GITHUB_SHA }}
-          path: ${{ env.MAIN_DIR }}
-      
       - name: Checkout Wiki Repo
         uses: actions/checkout@v3
         with:
@@ -58,6 +53,8 @@ jobs:
       - name: Build and Push Asset Digest
         run: python "${{ env.TOOLS_DIR }}/main.py"
         env:
-          MAIN_DIR: ${{ env.MAIN_DIR }}
           WIKI_DIR: ${{ env.WIKI_DIR }}
-          GITHUB_SHA: ${{env.GITHUB_SHA }}
+          GITHUB_SHA: ${{ env.GITHUB_SHA }}
+          GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
+          REPO_NAME: ${{ env.REPO_NAME }}
+          CONFIG_PATH: ${{ env.CONFIG_PATH }}
