@@ -15,8 +15,6 @@ on:
 env:
   TOOLS_DIR: tools #The directory where the digest tools repo is cloned
   WIKI_DIR: wiki #The directory where the digest wiki repo is cloned
-  REPO_NAME: DigestTest #This repo's name
-  CONFIG_PATH: Tools\AssetDigest\config.json #Path to the config file in this repo
 
 # Jobs
 jobs:
@@ -55,6 +53,6 @@ jobs:
         env:
           WIKI_DIR: ${{ env.WIKI_DIR }}
           GITHUB_SHA: ${{ env.GITHUB_SHA }}
-          GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
-          REPO_NAME: ${{ env.REPO_NAME }}
-          CONFIG_PATH: ${{ env.CONFIG_PATH }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_NAME: AustinEathorne/DigestTest
+          CONFIG_PATH: Tools\AssetDigest\config.json
